@@ -56,6 +56,7 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+filetype on
 filetype plugin on
 filetype indent on
 
@@ -97,11 +98,11 @@ set sidescroll=1
 
 " COLOR
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme solarized
 syntax on
 
 " STATUS
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+" set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 let mapleader = ","
 
@@ -118,7 +119,8 @@ if has("mouse")
 endif
 
 if has('gui_running')
-  set guifont=Source\ Code\ Pro:h12
+  " set guifont=Source\ Code\ Pro:h12
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 endif
 
 set linespace=2
@@ -129,37 +131,37 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" escape to clear search
 " nnoremap <esc> :noh<return><esc>
 
 set shell=bash\ --login
 
-if exists('b:haveRemappedT')
-    finish
-endif
-let b:haveRemappedT=1
-let s:oldmap=maparg('T', 'n')
-function! s:LastTab()
-    let tab=tabpagenr()
-    tabnext
-    execute "tabmove ".tabpagenr('$')
-    execute "tabn ".tab
-endfunction
-execute 'nnoremap <buffer> T '.s:oldmap.':call <SID>LastTab()<CR>'
+" if exists('b:haveRemappedT')
+"     finish
+" endif
+" let b:haveRemappedT=1
+" let s:oldmap=maparg('T', 'n')
+" function! s:LastTab()
+"     let tab=tabpagenr()
+"     tabnext
+"     execute "tabmove ".tabpagenr('$')
+"     execute "tabn ".tab
+" endfunction
+" execute 'nnoremap <buffer> T '.s:oldmap.':call <SID>LastTab()<CR>'
 
 " map <C-n> :NERDTreeTabsToggle<CR>
- map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " autocmd vimenter * NERDTree
 
 set clipboard=unnamed
 set wildmenu
 
-" match ErrorMsg '\s\+$'
-" nnoremap <Leader>w :%s/\s\+$//e<CR>
-
 " show filename
-set modeline
 set ls=2
+
+" show whitespace as error
+" match ErrorMsg '\s\+$'
 
 " strip whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -177,3 +179,64 @@ endfunction
 nnoremap <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePre *.rb,*.js :call <SID>StripTrailingWhitespaces()
 
+" edit from current working directory
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+" WRAPPING
+" set wrap
+" set linebreak
+" set nolist  " list disables linebreak
+" set formatoptions=t1
+" set textwidth=80
+" set wrapmargin=0
+" highlight overlength ctermbg=red ctermfg=white guibg=#592929
+" match overlength /\%81v.\+/
+set colorcolumn=80
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" WP Mode
+func! WordProcessorMode()
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  map j gj
+  map k gk
+  setlocal spell spelllang=en_us
+  set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
+  set complete+=s
+  set formatprg=par
+  setlocal wrap
+  setlocal linebreak
+endfu
+com! WP call WordProcessorMode()
+
+" show path of current file
+" from DAS
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" edit or view files in same directory as current file
+" from DAS
+map <leader>e :edit %%
+map <leader>v :view %%
+
+" make the current window big, but leave others context
+" from DAS
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" " we set winheight to be huge before winminheight, the winminheight set will
+" " fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+
+" switch between the last two files
+" from DAS
+nnoremap <leader><leader> <c-^>
+
+" airline
+let g:airline_powerline_fonts = 1

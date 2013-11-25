@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/bryanp/Code/Ruby/Pakyow/notmagic'
+let g:netrw_dirhist_2='/Users/bryanp/Code/Ruby/Pakyow/swippit'
+let g:netrw_dirhist_3='/Users/bryanp/Code/Ruby/Pakyow/online_content'
+let g:netrw_dirhist_4='/Users/bryanp/Code/Ruby/Gems/kapow'
+let g:netrw_dirhist_5='/Users/bryanp/Code/Ruby/Gems/pakyow'
+let g:netrw_dirhist_6='/Users/bryanp/Code/Ruby/Gems/kapow'
