@@ -98,7 +98,7 @@ set sidescroll=1
 
 " COLOR
 set background=dark
-colorscheme solarized
+colorscheme hybrid
 syntax on
 
 " STATUS
