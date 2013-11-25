@@ -79,3 +79,10 @@ proml
 PATH=${PATH}:/usr/local/share/python
 alias tmux="TERM=screen-256color-bce tmux"
 ###
+
+### bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+###
+
