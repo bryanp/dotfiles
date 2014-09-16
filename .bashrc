@@ -1,16 +1,29 @@
 ### paths
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
+export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:/usr/local/sbin:$PATH"
-export EDITOR='vim'
-export PATH="/users/bryanp/bin:$PATH"
-export PATH="./bin:$PATH"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 ###
+### NPM
+export PATH="/usr/local/share/npm/bin:$PATH"
+### PYTHON
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+export EDITOR='vim'
 
 ### rbenv
 eval "$(rbenv init -)"
+###
+
+### chruby
+# RUBIES=(~/.rbenv/versions/*)
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+###
+
+### add this after initing rbenv
+export PATH="./bin:$PATH"
 ###
 
 ### aliases
@@ -30,9 +43,12 @@ alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
 
-kapow() { bin/kapow "$@"; }
+# kapow() { bin/kapow "$@"; }
 
-alias pakdev='/users/bryanp/code/ruby/gems/pakyow/pakyow-core/bin/pakyow'
+alias pakdev='/users/bryanp/code/ruby/gems/pakyow/bin/pakyow'
+alias kapdev='../../gems/kapow/bin/kapow'
+
+alias ta='tmux attach'
 ###
 
 ### no mail check
@@ -85,4 +101,12 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 ###
+
+### dailies
+export DAILY_KEY="ead9deb285c4574fa5d6f468430696"
+export DAILY_PATH="/users/bryanp/code/wiki/devlog"
+
+### use macvim
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
 

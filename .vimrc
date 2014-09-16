@@ -119,8 +119,8 @@ if has("mouse")
 endif
 
 if has('gui_running')
-  " set guifont=Source\ Code\ Pro:h12
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+  set guifont=Source\ Code\ Pro:h12
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 endif
 
 set linespace=2
@@ -239,4 +239,37 @@ set winheight=999
 nnoremap <leader><leader> <c-^>
 
 " airline
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
+
+" RSpec.vim mappings
+cnoremap Rt :call RunCurrentSpecFile()<CR>
+cnoremap Rs :call RunNearestSpec()<CR>
+cnoremap Rl :call RunLastSpec()<CR>
+cnoremap Ra :call RunAllSpecs()<CR>
+
+" opens search results in a window w/ links and highlight the matches
+command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{json,pyc} . -e <args>' | copen | execute 'silent /<args>'
+" shift-control-* Greps for the word under the cursor
+:nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
+
+set omnifunc=syntaxcomplete#Complete
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set t_Co=256
+
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+let g:ctrlp_show_hidden = 1
+
+" close buffer without closing split
+nnoremap <C-c> :bp\|bd #<CR>
+
+" project-specific .vimrc
+set exrc
+set secure
+
