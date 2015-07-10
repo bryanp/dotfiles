@@ -1,5 +1,5 @@
 ### paths
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:/usr/local/sbin:$PATH"
@@ -7,9 +7,12 @@ export PATH="$HOME/.rbenv/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 ###
 ### NPM
-export PATH="/usr/local/share/npm/bin:$PATH"
+# export PATH="/usr/local/share/npm/bin:$PATH"
 ### PYTHON
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+### NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 export EDITOR='vim'
 
@@ -45,7 +48,7 @@ alias gcl='git clone'
 
 # kapow() { bin/kapow "$@"; }
 
-alias pakdev='/users/bryanp/code/ruby/gems/pakyow/bin/pakyow'
+alias pakdev='/users/bryanp/code/pakyow/libs/pakyow/bin/pakyow'
 alias kapdev='../../gems/kapow/bin/kapow'
 
 alias ta='tmux attach'
@@ -109,4 +112,4 @@ export DAILY_PATH="/users/bryanp/code/wiki/devlog"
 ### use macvim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
-
+CVSROOT=:pserver:metabahn@192.168.1.14:/usr/local/cvsroot; export CVSROOT

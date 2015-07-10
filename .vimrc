@@ -98,7 +98,8 @@ set sidescroll=1
 
 " COLOR
 set background=dark
-colorscheme hybrid
+colorscheme gotham
+" colorscheme Tomorrow
 syntax on
 
 " STATUS
@@ -202,18 +203,33 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " WP Mode
 func! WordProcessorMode()
-  setlocal formatoptions=1
+  setlocal formatoptions=aw2tq
   setlocal noexpandtab
   map j gj
   map k gk
   setlocal spell spelllang=en_us
+  nnoremap \s eas<C-X><C-S>
   set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
   set complete+=s
   set formatprg=par
   setlocal wrap
   setlocal linebreak
+  set laststatus=0
+  set foldcolumn=12
+  set nonumber
+  highlight! link FoldColumn Normal
 endfu
-com! WP call WordProcessorMode()
+com! Prose call WordProcessorMode()
+
+func! CodeMode()
+  set formatoptions=cql
+  set number
+  set ruler
+  set laststatus=1
+  set foldcolumn=0
+  setlocal nospell
+endfu
+com! Code call CodeMode()
 
 " show path of current file
 " from DAS
@@ -256,6 +272,8 @@ set omnifunc=syntaxcomplete#Complete
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_root_markers = ['.git']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 set t_Co=256
 
