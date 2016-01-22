@@ -2,31 +2,41 @@
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 ###
+
+### NODE
+export PATH="$HOME/.node/bin:$PATH"
+
 ### NPM
 # export PATH="/usr/local/share/npm/bin:$PATH"
+
 ### PYTHON
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
 ### NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# ugh this is so slow
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
 
 export EDITOR='vim'
 
 ### rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-###
+##
 
-### chruby
-# RUBIES=(~/.rbenv/versions/*)
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-###
+## chruby
+ # source /usr/local/opt/chruby/share/chruby/chruby.sh
+ # source /usr/local/opt/chruby/share/chruby/auto.sh
+ # chruby 2.2.2
+##
 
-### add this after initing rbenv
-export PATH="./bin:$PATH"
+### prioritize binstubs
+export PATH=./bin:$PATH
 ###
 
 ### aliases
@@ -95,13 +105,12 @@ proml
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-PATH=${PATH}:/usr/local/share/python
 alias tmux="TERM=screen-256color-bce tmux"
 ###
 
 ### bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+  . $(brew --prefix)/share/bash-completion/bash_completion
 fi
 ###
 
