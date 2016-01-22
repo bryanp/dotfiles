@@ -113,3 +113,6 @@ export DAILY_PATH="/users/bryanp/code/wiki/devlog"
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 CVSROOT=:pserver:metabahn@192.168.1.14:/usr/local/cvsroot; export CVSROOT
+
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
+alias jim=gem
