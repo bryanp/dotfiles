@@ -98,7 +98,9 @@ set sidescroll=1
 
 " COLOR
 set background=dark
-colorscheme gotham
+colorscheme lucius
+LuciusLight
+" colorscheme gotham
 " colorscheme Tomorrow
 syntax on
 
