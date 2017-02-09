@@ -1,6 +1,6 @@
 ### paths
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-export PATH=/usr/local/bin:$PATH
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
@@ -29,6 +29,12 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 ##
 
+### kubernetes
+export KUBECONFIG=~/code/ops/kubernetes/.kube/config
+export PATH=~/code/ops/kubernetes/platforms/darwin/amd64:$PATH
+export KUBERNETES_PROVIDER=aws
+##
+
 ## chruby
  # source /usr/local/opt/chruby/share/chruby/chruby.sh
  # source /usr/local/opt/chruby/share/chruby/auto.sh
@@ -36,7 +42,7 @@ eval "$(rbenv init -)"
 ##
 
 ### prioritize binstubs
-export PATH=./bin:$PATH
+export PATH="./bin:$PATH"
 ###
 
 ### aliases
@@ -121,7 +127,10 @@ export DAILY_PATH="/users/bryanp/code/wiki/devlog"
 ### use macvim
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
-CVSROOT=:pserver:metabahn@192.168.1.14:/usr/local/cvsroot; export CVSROOT
+CVSROOT=:pserver:metabahn@10.200.0.14:/usr/local/cvsroot; export CVSROOT
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
 alias jim=gem
+
+# added by travis gem
+[ -f /Users/bryanp/.travis/travis.sh ] && source /Users/bryanp/.travis/travis.sh

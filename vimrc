@@ -1,4 +1,6 @@
-execute pathogen#infect()
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 " Based on https://github.com/skwp/dotfiles/blob/master/vimrc
 
@@ -42,8 +44,8 @@ set nowb
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
+silent !mkdir ~/.vim-backups > /dev/null 2>&1
+set undodir=~/.vim-backups
 set undofile
 
 " ================ Indentation ======================
@@ -98,9 +100,9 @@ set sidescroll=1
 
 " COLOR
 set background=dark
-colorscheme lucius
-LuciusLight
-" colorscheme gotham
+" colorscheme lucius
+" LuciusLight
+colorscheme gotham
 " colorscheme Tomorrow
 syntax on
 
@@ -292,4 +294,3 @@ nnoremap <C-c> :bp\|bd #<CR>
 " project-specific .vimrc
 set exrc
 set secure
-
