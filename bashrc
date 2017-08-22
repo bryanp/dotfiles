@@ -125,7 +125,7 @@ export DAILY_KEY="ead9deb285c4574fa5d6f468430696"
 export DAILY_PATH="/users/bryanp/code/wiki/devlog"
 
 ### use macvim
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim='mvim -v'
 
 CVSROOT=:pserver:metabahn@10.200.0.14:/usr/local/cvsroot; export CVSROOT
 
