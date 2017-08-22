@@ -1,14 +1,20 @@
+" Based on contributions from many others, including:
+"
+" * https://github.com/skwp/dotfiles/blob/master/vimrc
+" * http://items.sjbach.com/319/configuring-vim-right
+" * https://www.destroyallsoftware.com/
+
+" Load defined plugins
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
-
-" Based on https://github.com/skwp/dotfiles/blob/master/vimrc
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
 " ================ General Config ====================
+"
 set number                      "Line numbers are good
 set relativenumber              "Relative line numbers are better
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -24,8 +30,10 @@ set autoread                    "Reload files changed outside vim
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
+" turn on syntax highlighting
 syntax on
+
+" hightlight the current line
 set cursorline
 
 " ================ Search Settings  =================
@@ -89,8 +97,6 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"
-
 " ================ Scrolling ========================
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
@@ -102,8 +108,9 @@ set sidescroll=1
 set background=dark
 " colorscheme lucius
 " LuciusLight
-colorscheme gotham
+" colorscheme gotham
 " colorscheme Tomorrow
+colorscheme Hybrid
 syntax on
 
 " STATUS
@@ -140,24 +147,6 @@ nnoremap <c-l> <c-w>l
 " nnoremap <esc> :noh<return><esc>
 
 set shell=bash\ --login
-
-" if exists('b:haveRemappedT')
-"     finish
-" endif
-" let b:haveRemappedT=1
-" let s:oldmap=maparg('T', 'n')
-" function! s:LastTab()
-"     let tab=tabpagenr()
-"     tabnext
-"     execute "tabmove ".tabpagenr('$')
-"     execute "tabn ".tab
-" endfunction
-" execute 'nnoremap <buffer> T '.s:oldmap.':call <SID>LastTab()<CR>'
-
-" map <C-n> :NERDTreeTabsToggle<CR>
-" map <C-n> :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" autocmd vimenter * NERDTree
 
 set clipboard=unnamed
 set wildmenu
@@ -267,10 +256,10 @@ cnoremap Rs :call RunNearestSpec()<CR>
 cnoremap Rl :call RunLastSpec()<CR>
 cnoremap Ra :call RunAllSpecs()<CR>
 
-" opens search results in a window w/ links and highlight the matches
-command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{json,pyc} . -e <args>' | copen | execute 'silent /<args>'
-" shift-control-* Greps for the word under the cursor
-:nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
+" " opens search results in a window w/ links and highlight the matches
+" command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{json,pyc} . -e <args>' | copen | execute 'silent /<args>'
+" " shift-control-* Greps for the word under the cursor
+" :nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
 
 set omnifunc=syntaxcomplete#Complete
 
