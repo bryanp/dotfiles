@@ -1,7 +1,7 @@
 ### paths
 export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/Code/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 ### Added by the Heroku Toolbelt
